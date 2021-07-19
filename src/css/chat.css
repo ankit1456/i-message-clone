@@ -1,0 +1,110 @@
+.chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: white;
+  position: relative;
+}
+
+.chat__header {
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid lightgray;
+  background-color: white;
+}
+
+.chat__header .MuiSvgIcon-root {
+  cursor: pointer;
+}
+
+.chat__header > h4 {
+  font-weight: 500;
+  color: gray;
+}
+
+.chat__name {
+  color: black;
+}
+
+.chat__input {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid lightgray;
+  background-color: white;
+}
+
+.chat__input > form {
+  flex: 1;
+}
+
+.chat__input > form > input {
+  width: 98%;
+  outline: 0;
+  border: 1px solid gray;
+  border-radius: 999px;
+  padding: 1rem 0rem 1rem 1.5rem;
+}
+
+.chat__input > form button {
+  display: none;
+}
+
+.chat__messages {
+  flex: 1;
+  overflow-y: auto;
+  position: relative;
+}
+
+.chat__messages::-webkit-scrollbar {
+  width: 1rem;
+}
+
+.chat__messages::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 8px;
+}
+.chat__mic {
+  font-size: 2rem !important;
+}
+
+@media (max-width: 600px) {
+  .chat {
+    flex: 1;
+  }
+}
+.chat__downbtn {
+  position: fixed;
+  right: 40%;
+  bottom: 6rem;
+  z-index: 1;
+  background-color: rgb(34, 107, 218);
+  padding: 1rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.downbtn {
+  border: none;
+  text-align: center;
+  font-size: 2rem !important;
+  color: #fff;
+}
+
+.chat__downbtn:hover {
+  background-color: rgb(12, 51, 180);
+}
+@media (max-width: 400px) {
+  .chat__downbtn {
+    padding: 0.5rem;
+  }
+  .downbtn {
+    font-size: 1.5rem !important;
+  }
+}
