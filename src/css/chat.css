@@ -5,6 +5,7 @@
   height: 100vh;
   background-color: white;
   position: relative;
+  padding-bottom: 2rem;
 }
 
 .chat__header {
@@ -79,7 +80,7 @@
 .chat__downbtn {
   position: fixed;
   right: 40%;
-  bottom: 6rem;
+  bottom: 8rem;
   z-index: 1;
   background-color: rgb(34, 107, 218);
   padding: 1rem;
@@ -90,6 +91,11 @@
   cursor: pointer;
 }
 
+@media (max-width: 500px) {
+  .chat__downbtn {
+    right: 50%;
+  }
+}
 .downbtn {
   border: none;
   text-align: center;

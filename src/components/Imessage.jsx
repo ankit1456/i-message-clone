@@ -20,7 +20,7 @@ const Imessage = () => {
           onClose={() => setOpen(false)}
           onOpen={() => setOpen(true)}
         >
-          <Sidebar />
+          <Sidebar setOpenSidebar={setOpen} />
         </SwipeableDrawer>
       ) : (
         <Sidebar />

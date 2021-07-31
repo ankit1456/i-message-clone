@@ -8,7 +8,7 @@ import moment from "moment";
 import { useSelector } from "react-redux";
 import { selectUser } from "../redux/userSlice";
 
-const SidebarChat = ({ chatId, chatName, handleClose }) => {
+const SidebarChat = ({ chatId, chatName, handleClose, setOpenSidebar }) => {
   const dispatch = useDispatch();
   const [chatInfo, setChatInfo] = useState([]);
   const user = useSelector(selectUser);
@@ -31,6 +31,9 @@ const SidebarChat = ({ chatId, chatName, handleClose }) => {
       })
     );
     handleClose();
+    if (setOpenSidebar) {
+      setOpenSidebar(false);
+    }
   };
   return (
     <div className='sidebarChat' onClick={selectChat}>

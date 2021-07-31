@@ -20,12 +20,11 @@ const LightTooltip = withStyles((theme) => ({
     fontSize: 11,
   },
 }))(Tooltip);
-const Sidebar = () => {
+const Sidebar = ({ setOpenSidebar }) => {
   const user = useSelector(selectUser);
   const [chats, setChat] = useState([]);
   const [open, setOpen] = useState(false);
   const [chatName, setChatName] = useState("");
-  const [search, setSearch] = useState("");
 
   useEffect(() => {
     db.collection("chats")
@@ -45,8 +44,12 @@ const Sidebar = () => {
         chatName: chatName,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       });
+
       setChatName("");
       setOpen(false);
+      if (setOpenSidebar) {
+        setOpenSidebar(false);
+      }
     }
   };
 
@@ -69,6 +72,7 @@ const Sidebar = () => {
               label='Enter Channel Name'
               variant='outlined'
               margin='dense'
+              className='text'
             />
             <Button onClick={addChannel} className='sidebar__addChannelButton'>
               Add Channel
@@ -87,12 +91,7 @@ const Sidebar = () => {
 
         <div className='sidebar__input'>
           <SearchIcon />
-          <input
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            type='text'
-            placeholder='Search'
-          />
+          <input type='text' placeholder='Search' />
         </div>
       </div>
       <div className='sidebar__actions'>
@@ -102,6 +101,7 @@ const Sidebar = () => {
       <div className='sidebar__chats'>
         {chats.map(({ id, data: { chatName } }) => (
           <SidebarChat
+            setOpenSidebar={setOpenSidebar}
             handleClose={() => setOpen(false)}
             key={id}
             chatId={id}

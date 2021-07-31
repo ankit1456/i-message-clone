@@ -53,6 +53,9 @@ const Chat = ({ handleOpen }) => {
   }, []);
   const sendMessage = (e) => {
     e.preventDefault();
+    if (!chatName) {
+      return alert("Please select a  chat room 🙂");
+    }
     if (input) {
       db.collection("chats").doc(chatId).collection("messages").add({
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),

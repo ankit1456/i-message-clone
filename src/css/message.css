@@ -34,7 +34,8 @@
   margin: 10px;
 }
 .message__sender > small {
-  right: 7rem;
+  bottom: -12px;
+  right: 2rem;
 }
 
 .message__sender > p {
